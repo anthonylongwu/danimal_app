@@ -31,8 +31,15 @@ class DanimalsController < ApplicationController
     danimal = Danimal.find_by(id: params[:id])
     updated_attributes = ({species: params[:species], leg_count: params[:leg_count]})
     danimal.update_attributes(updated_attributes)
-    
+
     redirect_to danimal 
+  end
+
+  def destroy
+    danimal = Danimal.find_by(id: params[:id])
+    danimal.destroy 
+
+    redirect_to danimals_path
   end
 
 end
